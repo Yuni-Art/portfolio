@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tu Nombre - Artista Digital</title>
+  <meta name="description" content="Portafolio de arte digital e ilustraciones">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <nav class="nav">
+      <a href="#inicio" class="nav__logo">Tu Nombre</a>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav__menu" id="nav-menu">
+        <li><a href="#inicio" class="nav__link">Inicio</a></li>
+        <li><a href="#galeria" class="nav__link">Galería</a></li>
+        <li><a href="#sobre-mi" class="nav__link">Sobre Mí</a></li>
+        <li><a href="#contacto" class="nav__link">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="hero__content">
+      <h1 class="hero__title">Tu Nombre</h1>
+      <p class="hero__subtitle">Artista Digital &amp; Ilustrador</p>
+      <a href="#galeria" class="hero__btn">Ver mis obras</a>
+    </div>
+  </section>
+
+  <!-- GALERÍA -->
+  <section class="galeria" id="galeria">
+    <div class="container">
+      <h2 class="section__title">Galería</h2>
+      <div class="galeria__filtros">
+        <button class="filtro-btn active" data-filter="all">Todas</button>
+        <button class="filtro-btn" data-filter="personajes">Personajes</button>
+        <button class="filtro-btn" data-filter="fanart">Fanart</button>
+      </div>
+      <div class="galeria__grid">
+        <!-- PERSONAJES -->
+        <div class="galeria__item" data-category="personajes">
+          <img src="https://placehold.co/600x800/1a1a2e/e0e0e0?text=Personaje+1" alt="Ilustración personaje 1">
+          <div class="galeria__overlay">
+            <span>Personaje Original</span>
+          </div>
+        </div>
+        <div class="galeria__item" data-category="personajes">
+          <img src="https://placehold.co/600x600/1a1a2e/e0e0e0?text=Personaje+2" alt="Ilustración personaje 2">
+          <div class="galeria__overlay">
+            <span>Personaje Original</span>
+          </div>
+        </div>
+        <div class="galeria__item" data-category="personajes">
+          <img src="https://placehold.co/800x600/1a1a2e/e0e0e0?text=Personaje+3" alt="Ilustración personaje 3">
+          <div class="galeria__overlay">
+            <span>Diseño de Personaje</span>
+          </div>
+        </div>
+        <!-- FANART -->
+        <div class="galeria__item" data-category="fanart">
+          <img src="https://placehold.co/600x800/16213e/e0e0e0?text=Fanart+1" alt="Fanart 1">
+          <div class="galeria__overlay">
+            <span>Fanart</span>
+          </div>
+        </div>
+        <div class="galeria__item" data-category="fanart">
+          <img src="https://placehold.co/600x600/16213e/e0e0e0?text=Fanart+2" alt="Fanart 2">
+          <div class="galeria__overlay">
+            <span>Fanart</span>
+          </div>
+        </div>
+        <div class="galeria__item" data-category="fanart">
+          <img src="https://placehold.co/800x600/16213e/e0e0e0?text=Fanart+3" alt="Fanart 3">
+          <div class="galeria__overlay">
+            <span>Fanart</span>
+          </div>
+        </div>
+        <!-- Más ejemplos -->
+        <div class="galeria__item" data-category="personajes">
+          <img src="https://placehold.co/600x800/0f3460/e0e0e0?text=Personaje+4" alt="Ilustración personaje 4">
+          <div class="galeria__overlay">
+            <span>Personaje Original</span>
+          </div>
+        </div>
+        <div class="galeria__item" data-category="fanart">
+          <img src="https://placehold.co/600x800/533483/e0e0e0?text=Fanart+4" alt="Fanart 4">
+          <div class="galeria__overlay">
+            <span>Fanart</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE MÍ -->
+  <section class="sobre-mi" id="sobre-mi">
+    <div class="container">
+      <h2 class="section__title">Sobre Mí</h2>
+      <div class="sobre-mi__content">
+        <div class="sobre-mi__foto">
+          <img src="https://placehold.co/400x400/1a1a2e/e0e0e0?text=Tu+Foto" alt="Foto de perfil">
+        </div>
+        <div class="sobre-mi__texto">
+          <p>Hola, soy <strong>Tu Nombre</strong>, artista digital e ilustrador apasionado por crear mundos y personajes.</p>
+          <p>Me especializo en ilustración digital de personajes originales y fanart. Cada pieza es una oportunidad para contar una historia y transmitir emociones a través del arte.</p>
+          <p>Actualmente estoy disponible para comisiones, colaboraciones y proyectos freelance.</p>
+          <div class="sobre-mi__redes">
+            <a href="https://instagram.com/tuusuario" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="https://artstation.com/tuusuario" target="_blank" rel="noopener" aria-label="ArtStation">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M0 17.723l2.027 3.505h.001a2.424 2.424 0 0 0 2.164 1.333h13.457l-2.792-4.838H0zm24-1.016l-4.534-7.854-2.255 3.909 4.534 7.854h2.255zM7.545 9.854L.018 22.91l2.255 3.908 7.527-13.056-2.255-3.908zm3.196 0l-2.255 3.909 5.273 9.146h4.509L10.74 9.854H10.741z"/></svg>
+            </a>
+            <a href="https://twitter.com/tuusuario" target="_blank" rel="noopener" aria-label="Twitter/X">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="contacto" id="contacto">
+    <div class="container">
+      <h2 class="section__title">Contacto</h2>
+      <p class="contacto__intro">¿Interesado en una comisión o colaboración? ¡Escríbeme!</p>
+      <form class="contacto__form" action="https://formspree.io/f/TU_ID_AQUI" method="POST">
+        <div class="form__group">
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
+        </div>
+        <div class="form__group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required placeholder="tu@email.com">
+        </div>
+        <div class="form__group">
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="mensaje" rows="5" required placeholder="Cuéntame sobre tu proyecto..."></textarea>
+        </div>
+        <button type="submit" class="form__btn">Enviar mensaje</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Tu Nombre. Todos los derechos reservados.</p>
+      <div class="footer__redes">
+        <a href="https://instagram.com/tuusuario" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+        <a href="https://artstation.com/tuusuario" target="_blank" rel="noopener" aria-label="ArtStation">ArtStation</a>
+        <a href="https://twitter.com/tuusuario" target="_blank" rel="noopener" aria-label="Twitter">Twitter</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox__close" id="lightbox-close" aria-label="Cerrar">&times;</button>
+    <button class="lightbox__prev" id="lightbox-prev" aria-label="Anterior">&#10094;</button>
+    <button class="lightbox__next" id="lightbox-next" aria-label="Siguiente">&#10095;</button>
+    <div class="lightbox__content">
+      <img src="" alt="" id="lightbox-img">
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
