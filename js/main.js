@@ -125,11 +125,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const comDots = document.getElementById('com-dots');
 
   if (comTrack) {
-    const comImages = comTrack.querySelectorAll('img');
+    const comSlides = comTrack.querySelectorAll('.carousel__slide');
     let comIndex = 0;
 
     // Crear dots
-    comImages.forEach((_, i) => {
+    comSlides.forEach((_, i) => {
       const dot = document.createElement('button');
       dot.classList.add('carousel__dot');
       if (i === 0) dot.classList.add('active');
@@ -145,18 +145,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     comNext.addEventListener('click', () => {
-      comIndex = (comIndex + 1) % comImages.length;
+      comIndex = (comIndex + 1) % comSlides.length;
       updateComCarousel();
     });
 
     comPrev.addEventListener('click', () => {
-      comIndex = (comIndex - 1 + comImages.length) % comImages.length;
+      comIndex = (comIndex - 1 + comSlides.length) % comSlides.length;
       updateComCarousel();
     });
 
     // Auto-play cada 5 segundos
     let comAutoPlay = setInterval(() => {
-      comIndex = (comIndex + 1) % comImages.length;
+      comIndex = (comIndex + 1) % comSlides.length;
       updateComCarousel();
     }, 5000);
 
@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
     comTrack.closest('.carousel').addEventListener('mouseenter', () => clearInterval(comAutoPlay));
     comTrack.closest('.carousel').addEventListener('mouseleave', () => {
       comAutoPlay = setInterval(() => {
-        comIndex = (comIndex + 1) % comImages.length;
+        comIndex = (comIndex + 1) % comSlides.length;
         updateComCarousel();
       }, 5000);
     });
