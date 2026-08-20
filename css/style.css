@@ -353,17 +353,76 @@ img {
   padding: 100px 0;
 }
 
-.comisiones__imgs {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0;
+/* --- Carrusel --- */
+.carousel {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
 }
 
-.comisiones__imgs img {
-  width: 100%;
-  max-width: 800px;
-  display: block;
+.carousel__viewport {
+  overflow: hidden;
+  border-radius: var(--radius);
+}
+
+.carousel__track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel__track img {
+  min-width: 100%;
+  object-fit: contain;
+  max-height: 70vh;
+  background: var(--bg-card);
+}
+
+.carousel__btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: var(--transition);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel__btn:hover {
+  background: var(--accent);
+}
+
+.carousel__btn--prev { left: -22px; }
+.carousel__btn--next { right: -22px; }
+
+.carousel__dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.carousel__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--border);
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.carousel__dot.active {
+  background: var(--accent);
+  transform: scale(1.2);
 }
 
 /* --- Contacto --- */

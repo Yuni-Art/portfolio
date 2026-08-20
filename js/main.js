@@ -118,6 +118,58 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // --- Carrusel de Comisiones ---
+  const comTrack = document.getElementById('com-track');
+  const comPrev = document.getElementById('com-prev');
+  const comNext = document.getElementById('com-next');
+  const comDots = document.getElementById('com-dots');
+
+  if (comTrack) {
+    const comImages = comTrack.querySelectorAll('img');
+    let comIndex = 0;
+
+    // Crear dots
+    comImages.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.classList.add('carousel__dot');
+      if (i === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => { comIndex = i; updateComCarousel(); });
+      comDots.appendChild(dot);
+    });
+
+    function updateComCarousel() {
+      comTrack.style.transform = `translateX(-${comIndex * 100}%)`;
+      comDots.querySelectorAll('.carousel__dot').forEach((dot, i) => {
+        dot.classList.toggle('active', i === comIndex);
+      });
+    }
+
+    comNext.addEventListener('click', () => {
+      comIndex = (comIndex + 1) % comImages.length;
+      updateComCarousel();
+    });
+
+    comPrev.addEventListener('click', () => {
+      comIndex = (comIndex - 1 + comImages.length) % comImages.length;
+      updateComCarousel();
+    });
+
+    // Auto-play cada 5 segundos
+    let comAutoPlay = setInterval(() => {
+      comIndex = (comIndex + 1) % comImages.length;
+      updateComCarousel();
+    }, 5000);
+
+    // Pausar al hover
+    comTrack.closest('.carousel').addEventListener('mouseenter', () => clearInterval(comAutoPlay));
+    comTrack.closest('.carousel').addEventListener('mouseleave', () => {
+      comAutoPlay = setInterval(() => {
+        comIndex = (comIndex + 1) % comImages.length;
+        updateComCarousel();
+      }, 5000);
+    });
+  }
+
   // --- Animación fade-in para galería ---
   const style = document.createElement('style');
   style.textContent = `
