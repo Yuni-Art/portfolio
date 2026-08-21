@@ -297,10 +297,11 @@ img {
 
 .galeria__grid {
   margin: 0 auto;
+  max-width: 1200px;
 }
 
 .galeria__item {
-  width: 25%;
+  width: calc(25% - 9px);
   position: relative;
   cursor: pointer;
   margin-bottom: 12px;
@@ -773,7 +774,7 @@ img {
   }
 
   .galeria__item {
-    width: 33.333%;
+    width: calc(33.333% - 8px);
   }
 
   .lightbox__prev { left: 10px; }
@@ -782,7 +783,7 @@ img {
 
 @media (max-width: 480px) {
   .galeria__item {
-    width: 50%;
+    width: calc(50% - 6px);
   }
 
 

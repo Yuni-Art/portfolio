@@ -115,15 +115,27 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- Masonry.js Gallery ---
   let msnry;
 
+  function getColumns() {
+    const w = window.innerWidth;
+    if (w <= 360) return 1;
+    if (w <= 480) return 2;
+    if (w <= 768) return 3;
+    return 4;
+  }
+
   function initMasonry() {
     const grid = document.querySelector('.galeria__panel.active .galeria__subpanel.active .galeria__grid');
     if (!grid) return;
     if (msnry) msnry.destroy();
+    const cols = getColumns();
+    const gridWidth = grid.getBoundingClientRect().width;
+    const gutter = 12;
+    const colW = (gridWidth - gutter * (cols - 1)) / cols;
     msnry = new Masonry(grid, {
       itemSelector: '.galeria__item',
-      columnWidth: '.galeria__item',
-      percentPosition: true,
-      gutter: 12,
+      columnWidth: colW,
+      gutter: gutter,
+      percentPosition: false,
       transitionDuration: '0.2s'
     });
   }
