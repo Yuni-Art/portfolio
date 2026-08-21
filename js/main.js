@@ -174,6 +174,34 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // --- Masonry Layout (left to right) ---
+  function layoutMasonry() {
+    document.querySelectorAll('.galeria__panel.active .galeria__subpanel.active .galeria__grid').forEach(grid => {
+      const items = grid.querySelectorAll('.galeria__item');
+      grid.style.gridAutoRows = '1px';
+      items.forEach(item => {
+        const h = item.getBoundingClientRect().height;
+        item.style.gridRowEnd = `span ${Math.ceil(h + 12)}`;
+      });
+    });
+  }
+
+  layoutMasonry();
+  window.addEventListener('resize', layoutMasonry);
+
+  // Re-layout on tab/subtab change
+  document.querySelectorAll('.galeria__tab, .subtab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      setTimeout(layoutMasonry, 50);
+    });
+  });
+
+  // Re-layout when images load
+  document.querySelectorAll('.galeria__item img').forEach(img => {
+    if (img.complete) return;
+    img.addEventListener('load', layoutMasonry);
+  });
+
   // --- Animación fade-in para galería ---
   const style = document.createElement('style');
   style.textContent = `
