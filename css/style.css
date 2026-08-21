@@ -167,7 +167,7 @@ img {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: url('../img/hero/fondo.jpg') center/cover no-repeat;
+  background: url('../img/hero/fondo.webp') center/cover no-repeat;
   position: relative;
   padding: 0 24px;
 }
@@ -790,27 +790,135 @@ img {
     visibility: visible;
   }
 
-  .sobre-mi__content {
+  .hero {
+    min-height: 90vh;
+    padding: 80px 16px 40px;
+  }
+
+  .hero__buttons {
     flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hero__btn {
+    padding: 12px 28px;
+    font-size: 0.95rem;
+    width: 100%;
+    max-width: 280px;
     text-align: center;
-    gap: 32px;
   }
 
-  .sobre-mi__foto img {
-    width: 200px;
-    height: 200px;
+  .galeria {
+    padding: 60px 0;
   }
 
-  .sobre-mi__redes {
-    justify-content: center;
+  .galeria__tabs {
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 0 12px;
+  }
+
+  .galeria__tab {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  .galeria__subtabs {
+    gap: 6px;
+    padding: 0 12px;
+  }
+
+  .subtab {
+    padding: 6px 14px;
+    font-size: 0.8rem;
   }
 
   .galeria__item {
     width: calc(33.333% - 8px);
   }
 
+  .sobre-mi {
+    padding: 60px 0;
+  }
+
+  .sobre-mi__content {
+    flex-direction: column;
+    text-align: center;
+    gap: 32px;
+    padding: 0 16px;
+  }
+
+  .sobre-mi__foto img {
+    width: 180px;
+    height: 180px;
+  }
+
+  .sobre-mi__texto p {
+    font-size: 0.95rem;
+  }
+
+  .sobre-mi__redes {
+    justify-content: center;
+  }
+
+  .comisiones {
+    padding: 60px 0;
+  }
+
+  .carousel {
+    margin: 0 16px;
+  }
+
+  .carousel__text {
+    padding: 16px;
+    font-size: 0.9rem;
+  }
+
+  .carousel__text h3 {
+    font-size: 1.1rem;
+  }
+
+  .carousel__btn {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+
+  .carousel__btn--prev { left: 8px; }
+  .carousel__btn--next { right: 8px; }
+
+  .contacto {
+    padding: 60px 0;
+  }
+
+  .contacto__form {
+    padding: 0 16px;
+  }
+
   .lightbox__prev { left: 10px; }
   .lightbox__next { right: 10px; }
+
+  .lightbox__prev,
+  .lightbox__next {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+
+  .lightbox__close {
+    font-size: 2rem;
+    top: 12px;
+    right: 16px;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+
+  .section__title {
+    font-size: 2rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -818,18 +926,61 @@ img {
     width: calc(50% - 6px);
   }
 
+  .galeria__tabs {
+    gap: 6px;
+  }
 
-  .section__title {
-    font-size: 2rem;
+  .galeria__tab {
+    padding: 8px 16px;
+    font-size: 0.85rem;
   }
 
   .hero__title {
     font-size: 2.5rem;
   }
+
+  .hero__subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 30px;
+  }
+
+  .section__title {
+    font-size: 1.8rem;
+  }
+
+  .sobre-mi__foto img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .carousel__text--grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .form__group input,
+  .form__group textarea {
+    padding: 12px 14px;
+    font-size: 0.95rem;
+  }
+
+  .lightbox__content img {
+    max-height: 75vh;
+    border-radius: 8px;
+  }
 }
 
 @media (max-width: 360px) {
   .galeria__item {
-    width: 100%;
+    width: calc(50% - 4px);
+  }
+
+  .hero__title {
+    font-size: 2.2rem;
+  }
+
+  .galeria__tab {
+    padding: 8px 12px;
+    font-size: 0.8rem;
   }
 }
