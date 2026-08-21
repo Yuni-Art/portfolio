@@ -226,6 +226,78 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // --- Music Player ---
+  const playlist = [
+    'audio/song1.mp3',
+    'audio/song2.mp3',
+    'audio/song3.mp3'
+  ];
+
+  let currentTrack = 0;
+  let isPlaying = false;
+  const audio = new Audio(playlist[0]);
+  audio.loop = true;
+
+  const musicToggle = document.getElementById('music-toggle');
+  const musicIcon = document.getElementById('music-icon');
+  const musicPrev = document.getElementById('music-prev');
+  const musicNext = document.getElementById('music-next');
+  const musicTrack = document.getElementById('music-track');
+
+  function updateTrackDisplay() {
+    musicTrack.textContent = `${currentTrack + 1} / ${playlist.length}`;
+  }
+
+  function playMusic() {
+    audio.play().then(() => {
+      isPlaying = true;
+      musicIcon.classList.remove('fa-volume-high', 'fa-volume-xmark');
+      musicIcon.classList.add('fa-volume-high');
+    }).catch(() => {
+      isPlaying = false;
+      musicIcon.classList.remove('fa-volume-high');
+      musicIcon.classList.add('fa-volume-xmark');
+    });
+  }
+
+  function pauseMusic() {
+    audio.pause();
+    isPlaying = false;
+    musicIcon.classList.remove('fa-volume-high');
+    musicIcon.classList.add('fa-volume-xmark');
+  }
+
+  musicToggle.addEventListener('click', () => {
+    if (isPlaying) {
+      pauseMusic();
+    } else {
+      playMusic();
+    }
+  });
+
+  musicPrev.addEventListener('click', () => {
+    currentTrack = (currentTrack - 1 + playlist.length) % playlist.length;
+    audio.src = playlist[currentTrack];
+    updateTrackDisplay();
+    if (isPlaying) playMusic();
+  });
+
+  musicNext.addEventListener('click', () => {
+    currentTrack = (currentTrack + 1) % playlist.length;
+    audio.src = playlist[currentTrack];
+    updateTrackDisplay();
+    if (isPlaying) playMusic();
+  });
+
+  audio.addEventListener('ended', () => {
+    currentTrack = (currentTrack + 1) % playlist.length;
+    audio.src = playlist[currentTrack];
+    updateTrackDisplay();
+    playMusic();
+  });
+
+  updateTrackDisplay();
+
   // --- Animación fade-in para galería ---
   const style = document.createElement('style');
   style.textContent = `
