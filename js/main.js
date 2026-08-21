@@ -174,48 +174,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- Masonry Layout (left to right, full images) ---
-  function layoutMasonry() {
-    const grid = document.querySelector('.galeria__panel.active .galeria__subpanel.active .galeria__grid');
-    if (!grid) return;
-    const items = grid.querySelectorAll('.galeria__item');
-    if (!items.length) return;
-    const colWidth = (grid.getBoundingClientRect().width - 36) / 4;
-    grid.style.gridAutoRows = '1px';
-    items.forEach(item => {
-      const img = item.querySelector('img');
-      let h;
-      if (img && img.naturalHeight && img.naturalWidth) {
-        h = (img.naturalHeight / img.naturalWidth) * colWidth;
-      } else {
-        h = item.getBoundingClientRect().height;
-      }
-      if (h > 0) {
-        item.style.gridRowEnd = `span ${Math.ceil(h + 4)}`;
-      }
-    });
-  }
-
-  window.addEventListener('load', () => {
-    layoutMasonry();
-    setTimeout(layoutMasonry, 300);
-    setTimeout(layoutMasonry, 1000);
-  });
-  window.addEventListener('resize', layoutMasonry);
-
-  // Re-layout on tab/subtab change
-  document.querySelectorAll('.galeria__tab, .subtab').forEach(btn => {
-    btn.addEventListener('click', () => {
-      setTimeout(layoutMasonry, 100);
-      setTimeout(layoutMasonry, 500);
-    });
-  });
-
-  // Re-layout when images load
-  document.querySelectorAll('.galeria__item img').forEach(img => {
-    img.addEventListener('load', () => setTimeout(layoutMasonry, 50));
-  });
-
   // --- Animación fade-in para galería ---
   const style = document.createElement('style');
   style.textContent = `
