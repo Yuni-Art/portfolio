@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'ArrowLeft') prevImage();
   });
 
-  // --- Masonry.js Gallery ---
+  // --- Masonry.js + imagesLoaded Gallery ---
   let msnry;
 
   function getColumns() {
@@ -137,6 +137,10 @@ document.addEventListener('DOMContentLoaded', () => {
       gutter: gutter,
       percentPosition: false,
       transitionDuration: '0.2s'
+    });
+    imagesLoaded(grid, () => {
+      msnry.reloadItems();
+      msnry.layout();
     });
   }
 
