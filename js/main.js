@@ -298,6 +298,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   updateTrackDisplay();
 
+  // Auto-play on page load
+  audio.volume = 0.5;
+  audio.play().then(() => {
+    isPlaying = true;
+    musicIcon.classList.remove('fa-volume-xmark');
+    musicIcon.classList.add('fa-volume-high');
+  }).catch(() => {
+    isPlaying = false;
+    musicIcon.classList.remove('fa-volume-high');
+    musicIcon.classList.add('fa-volume-xmark');
+  });
+
   // --- Animación fade-in para galería ---
   const style = document.createElement('style');
   style.textContent = `
