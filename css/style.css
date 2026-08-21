@@ -190,6 +190,14 @@ img {
   font-weight: 300;
 }
 
+.hero__buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
 .hero__btn {
   display: inline-block;
   padding: 14px 36px;
@@ -205,6 +213,17 @@ img {
 .hero__btn:hover {
   background: var(--accent-hover);
   transform: translateY(-2px);
+  box-shadow: 0 8px 32px var(--accent-glow);
+}
+
+.hero__btn--secondary {
+  background: transparent;
+  border: 2px solid var(--accent);
+  box-shadow: none;
+}
+
+.hero__btn--secondary:hover {
+  background: var(--accent);
   box-shadow: 0 8px 32px var(--accent-glow);
 }
 
