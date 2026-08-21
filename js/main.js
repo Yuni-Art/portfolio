@@ -228,9 +228,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- Music Player ---
   const playlist = [
-    'audio/song1.mp3',
-    'audio/song2.mp3',
-    'audio/song3.mp3'
+    'audio/Alien Stage full instrumentals [Updated Version].mp3',
+    'audio/Persona 3 Reload - All Vocal songs (Lyrics).mp3',
+    'audio/playlist to read nana  nana 707 all ost.mp3'
   ];
 
   let currentTrack = 0;
