@@ -21,25 +21,29 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // --- Filtros de Galería ---
-  const filtroBtns = document.querySelectorAll('.filtro-btn');
-  const galeriaItems = document.querySelectorAll('.galeria__item');
+  // --- Tabs de Galería ---
+  const galeriaTabs = document.querySelectorAll('.galeria__tab');
+  const galeriaPanels = document.querySelectorAll('.galeria__panel');
 
-  filtroBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filtroBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+  galeriaTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      galeriaTabs.forEach(t => t.classList.remove('active'));
+      galeriaPanels.forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById(`panel-${tab.dataset.tab}`).classList.add('active');
+    });
+  });
 
-      const filter = btn.dataset.filter;
+  // --- Subtabs (Años) ---
+  const subtabs = document.querySelectorAll('.subtab');
 
-      galeriaItems.forEach(item => {
-        if (filter === 'all' || item.dataset.category === filter) {
-          item.classList.remove('hidden');
-          item.style.animation = 'fadeIn 0.4s ease forwards';
-        } else {
-          item.classList.add('hidden');
-        }
-      });
+  subtabs.forEach(subtab => {
+    subtab.addEventListener('click', () => {
+      const panel = subtab.closest('.galeria__panel');
+      panel.querySelectorAll('.subtab').forEach(s => s.classList.remove('active'));
+      panel.querySelectorAll('.galeria__subpanel').forEach(sp => sp.classList.remove('active'));
+      subtab.classList.add('active');
+      document.getElementById(`subpanel-${subtab.dataset.subtab}`).classList.add('active');
     });
   });
 
@@ -54,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let visibleItems = [];
 
   function getVisibleItems() {
-    return Array.from(galeriaItems).filter(item => !item.classList.contains('hidden'));
+    return Array.from(document.querySelectorAll('.galeria__item')).filter(item => !item.classList.contains('hidden'));
   }
 
   function openLightbox(index) {
@@ -86,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateLightboxImage();
   }
 
-  galeriaItems.forEach((item, index) => {
+  document.querySelectorAll('.galeria__item').forEach((item) => {
     item.addEventListener('click', () => {
       const visibleIndex = getVisibleItems().indexOf(item);
       openLightbox(visibleIndex);
