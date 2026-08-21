@@ -594,65 +594,38 @@ img {
   font-size: 1.1rem;
 }
 
-.contacto__form {
-  max-width: 600px;
+.contacto__redes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
-.form__group {
-  margin-bottom: 24px;
-}
-
-.form__group label {
-  display: block;
-  margin-bottom: 8px;
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-}
-
-.form__group input,
-.form__group textarea {
-  width: 100%;
-  padding: 14px 18px;
+.contacto__link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 24px;
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: var(--radius);
-  color: var(--text-primary);
-  font-family: 'Inter', sans-serif;
-  font-size: 1rem;
-  transition: var(--transition);
-  resize: vertical;
-}
-
-.form__group input:focus,
-.form__group textarea:focus {
-  outline: none;
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px var(--accent-glow);
-}
-
-.form__group input::placeholder,
-.form__group textarea::placeholder {
-  color: rgba(160, 160, 176, 0.5);
-}
-
-.form__btn {
-  width: 100%;
-  padding: 16px;
-  background: var(--accent);
-  color: #fff;
-  border: none;
-  border-radius: var(--radius);
-  font-size: 1rem;
+  border-radius: 50px;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
   font-weight: 500;
-  font-family: 'Inter', sans-serif;
-  cursor: pointer;
   transition: var(--transition);
-  box-shadow: 0 4px 24px var(--accent-glow);
 }
 
-.form__btn:hover {
-  background: var(--accent-hover);
+.contacto__link i {
+  font-size: 1.2rem;
+  color: var(--accent);
+}
+
+.contacto__link:hover {
+  color: var(--text-primary);
+  border-color: var(--accent);
+  background: rgba(124, 58, 237, 0.1);
   transform: translateY(-2px);
 }
 
@@ -677,7 +650,7 @@ img {
 
 .footer__redes a {
   color: var(--text-secondary);
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   transition: var(--transition);
 }
 
@@ -892,8 +865,9 @@ img {
     padding: 60px 0;
   }
 
-  .contacto__form {
-    padding: 0 16px;
+  .contacto__link {
+    padding: 12px 20px;
+    font-size: 0.9rem;
   }
 
   .lightbox__prev { left: 10px; }
