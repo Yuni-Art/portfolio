@@ -306,7 +306,6 @@ img {
 .galeria__item {
   position: relative;
   border-radius: var(--radius);
-  overflow: hidden;
   cursor: pointer;
   background: rgba(255, 255, 255, 0.03);
   transition: var(--transition);
@@ -316,6 +315,7 @@ img {
   width: 100%;
   height: auto;
   display: block;
+  border-radius: var(--radius);
   transition: var(--transition);
 }
 

@@ -174,24 +174,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- Masonry Layout (left to right, natural proportions) ---
+  // --- Masonry Layout (left to right, full images) ---
   function layoutMasonry() {
     const grid = document.querySelector('.galeria__panel.active .galeria__subpanel.active .galeria__grid');
     if (!grid) return;
     const items = grid.querySelectorAll('.galeria__item');
     if (!items.length) return;
-    const colWidth = grid.getBoundingClientRect().width / parseInt(getComputedStyle(grid).gridTemplateColumns);
+    const colWidth = (grid.getBoundingClientRect().width - 36) / 4;
     grid.style.gridAutoRows = '1px';
     items.forEach(item => {
       const img = item.querySelector('img');
       let h;
-      if (img && img.naturalHeight) {
+      if (img && img.naturalHeight && img.naturalWidth) {
         h = (img.naturalHeight / img.naturalWidth) * colWidth;
       } else {
         h = item.getBoundingClientRect().height;
       }
       if (h > 0) {
-        item.style.gridRowEnd = `span ${Math.ceil(h + 12)}`;
+        item.style.gridRowEnd = `span ${Math.ceil(h + 4)}`;
       }
     });
   }
