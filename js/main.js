@@ -176,30 +176,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- Masonry Layout (left to right) ---
   function layoutMasonry() {
-    document.querySelectorAll('.galeria__panel.active .galeria__subpanel.active .galeria__grid').forEach(grid => {
-      const items = grid.querySelectorAll('.galeria__item');
-      grid.style.gridAutoRows = '1px';
-      items.forEach(item => {
-        const h = item.getBoundingClientRect().height;
-        item.style.gridRowEnd = `span ${Math.ceil(h + 12)}`;
-      });
+    const grid = document.querySelector('.galeria__panel.active .galeria__subpanel.active .galeria__grid');
+    if (!grid) return;
+    const items = grid.querySelectorAll('.galeria__item');
+    if (!items.length) return;
+    grid.style.gridAutoRows = '1px';
+    items.forEach(item => {
+      const h = item.getBoundingClientRect().height;
+      item.style.gridRowEnd = `span ${Math.ceil(h + 12)}`;
     });
   }
 
-  layoutMasonry();
+  window.addEventListener('load', () => {
+    layoutMasonry();
+    // Recalc after all images fully rendered
+    setTimeout(layoutMasonry, 300);
+    setTimeout(layoutMasonry, 1000);
+  });
   window.addEventListener('resize', layoutMasonry);
 
   // Re-layout on tab/subtab change
   document.querySelectorAll('.galeria__tab, .subtab').forEach(btn => {
     btn.addEventListener('click', () => {
-      setTimeout(layoutMasonry, 50);
+      setTimeout(layoutMasonry, 100);
+      setTimeout(layoutMasonry, 500);
     });
   });
 
   // Re-layout when images load
   document.querySelectorAll('.galeria__item img').forEach(img => {
-    if (img.complete) return;
-    img.addEventListener('load', layoutMasonry);
+    img.addEventListener('load', () => setTimeout(layoutMasonry, 50));
   });
 
   // --- Animación fade-in para galería ---
