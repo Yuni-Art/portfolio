@@ -112,6 +112,42 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'ArrowLeft') prevImage();
   });
 
+  // --- Masonry.js Gallery ---
+  let msnry;
+
+  function initMasonry() {
+    const grid = document.querySelector('.galeria__panel.active .galeria__subpanel.active .galeria__grid');
+    if (!grid) return;
+    if (msnry) msnry.destroy();
+    msnry = new Masonry(grid, {
+      itemSelector: '.galeria__item',
+      columnWidth: '.galeria__item',
+      percentPosition: true,
+      gutter: 12,
+      transitionDuration: '0.2s'
+    });
+  }
+
+  window.addEventListener('load', () => {
+    initMasonry();
+    setTimeout(initMasonry, 500);
+  });
+
+  // Re-init on tab/subtab change
+  document.querySelectorAll('.galeria__tab, .subtab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      setTimeout(initMasonry, 100);
+      setTimeout(initMasonry, 500);
+    });
+  });
+
+  // Re-init on resize
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(initMasonry, 200);
+  });
+
   // --- Header scroll effect ---
   const header = document.getElementById('header');
   window.addEventListener('scroll', () => {
